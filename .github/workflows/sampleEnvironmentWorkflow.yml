@@ -39,7 +39,7 @@ jobs:
     # Step 2
     - name: Run a script
       run: |
-        echo "2nd job ran successfully on $QA_ENV environment"
+        echo "2nd job ran successfully on ${{ env.QA_ENV }} environment"
 
   # 3rd Job Name: PROD
   PROD:
