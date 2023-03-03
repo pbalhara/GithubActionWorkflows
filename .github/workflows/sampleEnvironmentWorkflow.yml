@@ -37,12 +37,14 @@ jobs:
     # Step 2
     - name: Run a script
       run: |
-        echo "2nd job ran successfully on ${{secrets.ENV_NAME}} environment"
+        echo "2nd job ran successfully on ${{QA_ENV}} environment"
 
   # 3rd Job Name: PROD
   PROD:
     runs-on: windows-latest # For Linux, use ubuntu-latest
     environment: PROD
+    # Comment 'needs' to run the Job parallel
+    needs: QA # Requires QA job to complete successfully 
     steps:
     # Step 1
     - name: 'Checkout GitHub Action'
